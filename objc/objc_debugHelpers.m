@@ -28,7 +28,7 @@ BOOL _objc_checkObject(volatile id object)
    // objects begin at even addresses
    if((long)object%4!=0)
       return NO;
-   volatile Class isa=object->isa;
+   volatile Class isa=object_getClass(object);
    
    if(isa<(Class)0x2000)
       return NO;
